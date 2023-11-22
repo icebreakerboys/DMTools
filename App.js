@@ -1,11 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import DiceRoller from './components/DiceRoller';
+import NameGenerator from './components/NameGenerator';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Dungeon Master Tools (Mobile)</Text>
+      <DiceRoller />
+      <NameGenerator />
+      {/* Add other components for encounter creation, combat assistance, etc. */}
     </View>
   );
 }
@@ -13,7 +17,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
