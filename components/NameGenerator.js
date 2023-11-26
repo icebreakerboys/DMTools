@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Button} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';
 
 const NameGenerator = () => {
   const [generatedName, setGeneratedName] = useState('');

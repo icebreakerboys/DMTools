@@ -1,0 +1,50 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, FlatList } from 'react-native';
+
+const AddSheet = ({ onAddSheet }) => {
+    const initialCharacterSheet = {
+        name: '',
+        class: '',
+        level: '',
+        // ... other stats
+    };
+
+    const [characterSheet, setCharacterSheet] = useState(initialCharacterSheet);
+
+    const handleChange = (key, value) => {
+        setCharacterSheet((prevSheet) => ({ ...prevSheet, [key]: value }));
+    };
+
+    const handleSubmit = () => {
+        onAddSheet(characterSheet);
+        setCharacterSheet(initialCharacterSheet); // Clear the form after submission
+        //navigation.naviagte('CharacterList'); this is an error 
+    };
+
+    return (
+        <View>
+            <Text>Name:</Text>
+            <TextInput
+                value={characterSheet.name}
+                onChangeText={(text) => handleChange('name', text)}
+            />
+
+            <Text>Class:</Text>
+            <TextInput
+                value={characterSheet.class}
+                onChangeText={(text) => handleChange('class', text)}
+            />
+
+            <Text>Level:</Text>
+            <TextInput
+                value={characterSheet.level.toString()}
+                onChangeText={(text) => handleChange('level', text)}
+                keyboardType="numeric"
+            />
+
+            <Button title="Add Character Sheet" onPress={handleSubmit} />
+        </View>
+    );
+};
+
+export default AddSheet;

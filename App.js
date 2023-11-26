@@ -1,18 +1,22 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import DiceRoller from './components/DiceRoller';
-import NameGenerator from './components/NameGenerator';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Home from './screens/Home';
+import CharacterStackNavigator from './navigators/CharacterStackNavigator';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Dungeon Master Tools (Mobile)</Text>
-      <DiceRoller />
-      <NameGenerator />
-      {/* Add other components for encounter creation, combat assistance, etc. */}
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Characters" component={CharacterStackNavigator} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
